@@ -41,4 +41,5 @@ private:
     void doFilter(QImage srcImage);
 };
 
-#endif SIMPLEFILTER_H
+#endif // SIMPLEFILTER_H
+
