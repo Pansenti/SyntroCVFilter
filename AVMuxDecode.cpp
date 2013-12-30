@@ -32,15 +32,15 @@ void AVMuxDecode::decoderInput(QByteArray avmuxData)
 {
 	SYNTRO_AVPARAMS params;
 
-	if (avmuxData.size() < sizeof(SYNTRO_RECORD_AVMUX))
+	if (avmuxData.size() < (int)sizeof(SYNTRO_RECORD_AVMUX))
 		return;
 
-    SYNTRO_RECORD_AVMUX *avmux = (SYNTRO_RECORD_AVMUX *)avmuxData.constData();
+	SYNTRO_RECORD_AVMUX *avmux = (SYNTRO_RECORD_AVMUX *)avmuxData.constData();
 
 	if (SYNTRO_RECORDHEADER_PARAM_NOOP == SyntroUtils::convertUC2ToInt(avmux->recordHeader.param))
 		return;
 
-    SyntroUtils::avmuxHeaderToAVParams(avmux, &params);
+	SyntroUtils::avmuxHeaderToAVParams(avmux, &params);
     
 	if (SYNTRO_RECORD_TYPE_AVMUX_MJPPCM == params.avmuxSubtype)
 		processMJPPCM(avmux);
