@@ -220,7 +220,6 @@ void StreamDialog::layoutWindow()
 	m_currentList = new QListWidget();
 	m_currentList->setSelectionMode(QAbstractItemView::MultiSelection);
 	m_currentList->setEditTriggers(QAbstractItemView::NoEditTriggers);
-	m_currentList->setMaximumWidth(160);
 	
 	for (int i = 0; i < m_currentStreams.count(); i++)
 		m_currentList->addItem(new QListWidgetItem(m_currentStreams.at(i)));
@@ -258,7 +257,6 @@ void StreamDialog::layoutWindow()
 	m_availableList = new QListWidget();
 	m_availableList->setSelectionMode(QAbstractItemView::MultiSelection);
 	m_availableList->setEditTriggers(QAbstractItemView::NoEditTriggers);
-	m_availableList->setMaximumWidth(160);
 
 	m_availableStreams.sort();
 
